@@ -1,95 +1,60 @@
-<footer class="footer-light">
-    <div class="light-layout">
-        <div class="container">
-            <section class="small-section border-section border-top-0">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="subscribe">
-                            <div>
-                                <h4>KNOW IT ALL FIRST!</h4>
-                                <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <form class="form-inline subscribe-form auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                              target="_blank">
-                            <div class="form-group mx-sm-3">
-                                <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
-                            </div>
-                            <a class="btn btn-solid subsButton" id="submit">subscribe</a>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-    <section class="section-b-space light-layout" style="padding-top:30px;padding-bottom:20px">
-        <div class="container">
-            <div class="row footer-theme partition-f">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-title  active">
-                      
-                    </div>
-                    <div class="">
-                        <div class="footer-logo text-sm-center"><img src="/images/bliomi-logo.png" alt=""></div>
-                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p> --}}
+<footer class="site-footer">
+      <div class="container">
+        <div class="row">
 
-                    </div>
-                </div>
-                <div class="col-lg-8" style="padding-top:25px">
-                    <div class="row">
-                        <div class="col-lg-3">
-                        </div>
-                    <div class="col-lg-4 text-right text-sm-center">
-                        <a href="#" ><h4 style="color:black;text-transform:uppercase;font-weight:bold">Term and Condition</h4></a>
-                    </div>
-                    <div class="col-lg-3 text-right text-sm-center">
-                        <a href="#" ><h4 style="color:black;text-transform:uppercase;font-weight:bold">privacy policy</h4></a>
-                    </div>
-                    <div class="col-lg-2 text-right text-sm-center">
-                            <a href="#" ><h4 style="color:black;text-transform:uppercase;font-weight:bold">faq</h4></a>
-                    </div>
-                </div>
-            </div>
+          <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">We make creative <strong>brands</strong> only.</h1>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="my-4">Contact Info</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-phone mr-2 footer-icon"></i> 
+              +99 080 070 4224
+            </p>
+
+            <p>
+              <a href="#">
+                <i class="fa fa-envelope mr-2 footer-icon"></i>
+                hello@company.com
+              </a>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="my-4">Our Studio</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-home mr-2 footer-icon"></i> 
+              Av. Lúcio Costa - Barra da Tijuca, Rio de Janeiro - RJ, Brazil
+            </p>
+          </div>
+
+          <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
+            <p class="copyright-text">Copyright &copy; 2020 Your Company
+            <br>
+            <a rel="nofollow noopener" href="https://templatemo.com">Design: TemplateMo</a></p>
+          </div>
+
+          <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+            
+            <ul class="footer-link">
+              <li><a href="#">Stories</a></li>
+              <li><a href="#">Work with us</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+            <ul class="social-icon">
+              <li><a href="#" class="fa fa-instagram"></a></li>
+              <li><a href="#" class="fa fa-twitter"></a></li>
+              <li><a href="#" class="fa fa-dribbble"></a></li>
+              <li><a href="#" class="fa fa-behance"></a></li>
+            </ul>
+          </div>
+
         </div>
-    </section>
-    <div class="sub-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="footer-end">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2019 powered by <a href="https://vantura.id" target="_blank">vantura.id</a></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-12 text-right">
-                    <div class="footer-social" style="margin-top:27px;display:block">
-                        <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade afterSubscribe" id="afterSubscribe" tabindex="-1" role="dialog" aria-labelledby="addOrder" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title mt-0">Newsletter Subscription</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                </div>
-                <div class="modal-body">
-                    <p class="subsMessage"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+      </div>
+    </footer>
