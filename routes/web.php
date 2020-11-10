@@ -12,7 +12,37 @@
 */
 
 //frontend
-Route::get('/', 'HomeController@index')->name('homepage');
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/login', function (){
+    return view('login');
+});
+
+Route::get('/blog', function (){
+    return view('blog');
+});
+
+Route::get('/blog', function (){
+    return view('blog');
+});
+Route::get('/blog/detail', function (){
+    return view('blog-detail');
+});
+
+Route::get('/video', function (){
+    return view('video');
+});
+
+Route::get('/livestream', function (){
+    return view('livestream');
+});
+
+Route::get('/admin', 'HomeController@login')->name('loginpage');
+
+
+/*Route::get('/', 'HomeController@index')->name('homepage');
 Route::get('/product', 'HomeController@product')->name('product');
 Route::get('/sortnew', 'HomeController@sortnew')->name('sortnew');
 Route::get('/sortlow', 'HomeController@sortpricelow')->name('sortlow');
@@ -25,6 +55,7 @@ Route::get('/login', 'HomeController@login')->name('loginpage');
 Route::get('/registerpage', 'HomeController@registerpage')->name('registerpage');
 Route::get('/forgot', 'HomeController@forgot')->name('forgot');
 Route::get('/verified/{id}', 'RegController@verified')->name('verified');
+*/
 //dashboarduser
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/myauction', 'HomeController@myauction')->name('myauction');

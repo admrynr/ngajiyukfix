@@ -1,96 +1,223 @@
-@extends('layouts-front.master')
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-@section('content')
-<!-- breadcrumb start -->
-<div class="breadcrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="page-title">
-                    <h2>blog</h2></div>
-            </div>
-            <div class="col-sm-6">
-                <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">blog</li>
-                    </ol>
-                </nav>
+     <title>Digital Trend HTML Template</title>
+<!--
+
+DIGITAL TREND
+
+https://templatemo.com/tm-538-digital-trend
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/aos.css">
+     <link rel="stylesheet" href="css/owl.carousel.min.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/templatemo-digital-trend.css">
+
+</head>
+<body>
+
+     <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+              <i class="fa fa-line-chart"></i>
+              Digital Trend
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/video" class="nav-link">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/livestream" class="nav-link">Live Streaming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link contact">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</div>
-<!-- breadcrumb end -->
+    </nav>
 
-<!-- section start -->
-<section class="section-b-space blog-page ratio2_3">
-    <div class="container">
-        <div class="row">
-            <!--Blog sidebar start-->
-            <div class="col-xl-3 col-lg-4 col-md-5">
-                <div class="blog-sidebar">
-                    <div class="theme-card">
-                        <h4>Recent Blog</h4>
-                        <ul class="recent-blog">
-                          @foreach ($blog as $b)
-                            <li>
-                                <div class="media"><img class="img-fluid blur-up lazyload" src="{{url('images/'.$b->thumbnail)}}" alt="Generic placeholder image">
-                                    <div class="media-body align-self-center">
-                                        <h6>{{$b->date}}</h6>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
+
+     <!-- BLOG -->
+     <section class="blog section-padding">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
+
+                      <h1 class="mb-4" data-aos="fade-up">Digital Trend Blog</h1>
                     </div>
-                    <!--
-                    <div class="theme-card">
-                        <h4>Popular Blog</h4>
-                        <ul class="popular-blog">
-                          @foreach ($blog as $blogs)
-                            <li>
-                                <div class="media">
-                                    <div class="blog-date"><span>{{ date('d',strtotime($blogs->date)) }} </span><span>{{ date('M',strtotime($blogs->date)) }}</span></div>
-                                    <div class="media-body align-self-center">
-                                        <h6>{{$blogs->title}}</h6>
-                                        <p>0 hits</p>
-                                    </div>
-                                </div>
-                                <p>{!!$blogs->content!!}</p>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                  -->
-                </div>
-            </div>
-            <!--Blog sidebar start-->
-            <!--Blog List start-->
-            <div class="col-xl-9 col-lg-8 col-md-7 order-sec">
-                @foreach ($blog as $bl)
-                <div class="row blog-media">
-                    <div class="col-xl-6">
-                        <div class="blog-left">
-                            <a href="{{route('blogdetail', ['id' => $bl->id])}}"><img src="{{url('images/'.$bl->thumbnail)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+
+                    <div class="col-lg-7 col-md-7 col-12 mb-4">
+                      <div class="blog-header" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/blog/blog-header-image.jpg" class="img-fluid" alt="blog header">
+
+                        <div class="blog-header-info">
+                          <h4 class="blog-category text-info">Creative</h4>
+
+                          <h3><a href="blog/detail">The Key to Creative Work is Knowing When to Walk Away</a></h3>
                         </div>
+                      </div>
                     </div>
-                    <div class="col-xl-6">
-                        <div class="blog-right">
-                            <div>
-                                <h6>{{$bl->date}}</h6><a href="{{route('blogdetail', ['id' => $bl->id])}}"><h4>{{$bl->title}}</h4></a>
-                                <ul class="post-social">
-                                    <li>Posted By : {{$bl->user->name}}</li>
-                                </ul>
-                                <p>{!!$bl->content!!}</p>
+
+                    <div class="col-lg-5 col-md-5 col-12 mb-4">
+                      <div class="blog-sidebar d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/blog/blog-sidebar-image.jpg" class="img-fluid" alt="blog">
+
+                        <div class="blog-info">
+                          <h4 class="blog-category text-danger">Design</h4>
+
+                          <h3><a href="/blog-detail">Why Truly Accessible Design Benefits Everyone</a></h3>
+                        </div>
+                      </div>
+
+                      <div class="blog-sidebar py-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+                        <img src="images/blog/blog-sidebar-image01.jpg" class="img-fluid" alt="blog">
+
+                        <div class="blog-info">
+                          <h4 class="blog-category text-success">lifestyle</h4>
+
+                          <h3><a href="blog-detail.html">Be Humble About What You Know</a></h3>
+                        </div>
+                      </div>
+
+                      <div class="blog-sidebar d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/blog/blog-sidebar-image02.jpg" class="img-fluid" alt="blog">
+
+                        <div class="blog-info">
+                          <h4 class="blog-category text-primary">Coding</h4>
+
+                          <h3><a href="blog-detail.html">The Mistakes I Made As a Coding Beginner</a></h3>
+                        </div>
+                      </div>
+
+                    </div>
+
+                   <div class="col-lg-8 mx-auto mb-5 pb-5 col-12" data-aos="fade-up">
+
+                        <h3 class="my-3" data-aos="fade-up">Leave a comment</h3>
+
+                        <form action="#" method="get"  class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                            <input type="text" class="form-control" name="name" placeholder="Name">
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+
+                            <div class="col-lg-12 col-12">
+                            <textarea class="form-control" rows="6" name="message" placeholder="Message"></textarea>
+                            </div>
+
+                            <div class="col-lg-5 mx-auto col-7">
+                            <button type="submit" class="form-control" id="submit-button" name="submit">Submit Comment</button>
                             </div>
                         </div>
+                        </form>
                     </div>
-                </div>
-                @endforeach
-            </div>
-            <!--Blog List start-->
+
+               </div>
+          </div>
+     </section>
+
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">We make creative <strong>brands</strong> only.</h1>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="my-4">Contact Info</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-phone mr-2 footer-icon"></i> 
+              +99 080 070 4224
+            </p>
+
+            <p>
+              <a href="#">
+                <i class="fa fa-envelope mr-2 footer-icon"></i>
+                hello@company.com
+              </a>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="my-4">Our Studio</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-home mr-2 footer-icon"></i> 
+              Av. Lúcio Costa - Barra da Tijuca, Rio de Janeiro - RJ, Brazil
+            </p>
+          </div>
+
+          <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
+            <p class="copyright-text">Copyright &copy; 2020 Your Company
+            <br>
+            <a rel="nofollow noopener" href="https://templatemo.com">Design: TemplateMo</a></p>
+          </div>
+
+          <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+            
+            <ul class="footer-link">
+              <li><a href="#">Stories</a></li>
+              <li><a href="#">Work with us</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+            <ul class="social-icon">
+              <li><a href="#" class="fa fa-instagram"></a></li>
+              <li><a href="#" class="fa fa-twitter"></a></li>
+              <li><a href="#" class="fa fa-dribbble"></a></li>
+              <li><a href="#" class="fa fa-behance"></a></li>
+            </ul>
+          </div>
+
         </div>
-    </div>
-</section>
-<!-- Section ends -->
-@endsection
+      </div>
+    </footer>
+
+
+     <!-- SCRIPTS -->
+     <script src="js/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/aos.js"></script>
+     <script src="js/owl.carousel.min.js"></script>
+     <script src="js/custom.js"></script>
+
+</body>
+</html>

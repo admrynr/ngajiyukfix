@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Ngaji YUK Login Page</title>
+     <title>Digital Trend HTML Template</title>
 <!--
 
 DIGITAL TREND
@@ -26,16 +26,20 @@ https://templatemo.com/tm-538-digital-trend
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/templatemo-digital-trend.css">
 
+     <!-- VIDEO JS -->
+     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+
 </head>
 <body>
 
      <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg position-absolute">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/">
               <i class="fa fa-line-chart"></i>
-              Ngaji YUK
+              Digital Trend
             </a>
+            
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -65,54 +69,56 @@ https://templatemo.com/tm-538-digital-trend
     </nav>
 
 
-     <!-- CONTACT -->
-     <section class="contact section-padding">
+     <!-- BLOG -->
+     <section class="blog section-padding">
           <div class="container">
                <div class="row">
 
-                    <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
+                    <div class="col-lg-12 col-12 mb-3 text-center">
 
-                      <h1 class="mb-4">Login <strong>User</strong></h1>
-
-                      <p>Silahkan masukkan 'Username' dan 'Password' untuk masuk sebagai <strong>User</strong></p>
+                      <h1 class="mb-4 " data-aos="fade-up">Our Livestream</h1>
                     </div>
 
-                    <div class="col-lg-8 mx-auto col-md-10 col-12">
-                    
-                    <!-- Follow https://templatemo.com/contact page to setup your own contact form -->
-                    
-                      <form action="#" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
-                        <div class="row">
-                          <div class="col-lg-10 col-12">
-                            <input type="text" class="form-control" name="username" placeholder="Username">
-                          </div>
+                    <div class="d-flex flex-row justify-content-center col-12 mb-5" data-aos="fade-up">
+                      <div class="container col-8 livestream">
+                        <!-- IFRAME YOUTUBE -->
+                        <iframe class="livestream-player col-12" width="640" height="360" src="https://www.youtube.com/embed/DDU-rZs-Ic4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                          <div class="col-lg-10 col-12">
-                            <input type="password" class="form-control" name="password" placeholder="Password">
-                          </div>
-        
-                          <div class="col-lg-5 mx-auto col-7">
-                            <a type="submit" class="form-control text-center" id="submit-button" href="/admin" name="submit">Submit</a>
-                          </div>
-                        </div>
-                      </form>
+                      </div>
+                      <div class="container col-4 livestream-side">
+                          <a class="mt-4 ml-4 mr-4 mb-2 navbar-livestream" href="">
+                          <i class="fa fa-tag mr-1" aria-hidden="true"></i>
+                          Category
+                          </a>
+                        <h4 class=" ml-4 mr-4 mb-1 text-left" >Judul Livestreaming asdas asdasdas asdasda</h4>
+                          <p class="ml-4 mr-4 mb-2 speaker-livestream">
+                          Ustadz Fulan
+                        </p>
+                      </div>
+                    </div>
+                  
+                  </div>
 
+                    </div>
+     </section>
+
+     <section class="project section-padding" id="project">
+          <div class="container-fluid">
+               <div class="row">
+
+                    <div class="col-lg-12 col-12">
+
+                        <h2 class="mb-5 text-center" data-aos="fade-up">
+                            Judul Livestream Hari Ini
+                            <strong>Bla Bla Bla</strong>
+                        </h2>
+                         
                     </div>
 
                </div>
           </div>
      </section>
 
-<!-- How to change your own map point
-	1. Go to Google Maps
-	2. Click on your location point
-	3. Click "Share" and choose "Embed map" tab
-	4. Copy only URL and paste it within the src="" field below
--->
-<!--     <div class="google-map" data-aos="zoom-in">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11196.961132529668!2d-43.38581128725845!3d-23.011063013218724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bdb695cd967b7%3A0x171cdd035a6a9d84!2sAv.%20L%C3%BAcio%20Costa%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%20Brazil!5e0!3m2!1sen!2sth!4v1568649412152!5m2!1sen!2sth" width="1920" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-     </div>
--->
 
     <footer class="site-footer">
       <div class="container">
