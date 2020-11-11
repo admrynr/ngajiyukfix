@@ -16,17 +16,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function (){
-    return view('login');
-});
+Route::get('/login', 'LoginController@showLoginForm')->name('login');
 
 Route::get('/blog', function (){
     return view('blog');
 });
 
-Route::get('/blog', function (){
-    return view('blog');
-});
 Route::get('/blog/detail', function (){
     return view('blog-detail');
 });
@@ -39,7 +34,7 @@ Route::get('/livestream', function (){
     return view('livestream');
 });
 
-Route::get('/admin', 'HomeController@login')->name('loginpage');
+//Route::get('/admin', 'HomeController@login')->name('loginpage');
 
 
 /*Route::get('/', 'HomeController@index')->name('homepage');

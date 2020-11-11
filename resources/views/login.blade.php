@@ -8,6 +8,14 @@
                <div class="row">
 
                     <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
+                      @if ($errors->any())
+                            <div class="alert {{ $errors->has('success') ? 'bg-success alert-success' : 'bg-danger alert-danger'}} text-white">
+                            
+                                    @foreach ($errors->all() as $error)
+                                        {{ $error }}
+                                    @endforeach
+                            </div>
+                        @endif
 
                       <h1 class="mb-4">Login <strong>User</strong></h1>
 
@@ -18,10 +26,11 @@
                     
                     <!-- Follow https://templatemo.com/contact page to setup your own contact form -->
                     
-                      <form action="#" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
+                      <form action="{{ route('admin.authenticate') }}" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
+                        @csrf
                         <div class="row">
                           <div class="col-lg-10 col-12">
-                            <input type="text" class="form-control" name="username" placeholder="Username">
+                            <input type="text" class="form-control" name="email" placeholder="Email">
                           </div>
 
                           <div class="col-lg-10 col-12">
@@ -29,7 +38,7 @@
                           </div>
         
                           <div class="col-lg-5 mx-auto col-7">
-                            <a type="submit" class="form-control text-center" id="submit-button" href="/admin" name="submit">Submit</a>
+                            <button type="submit" class="form-control text-center" id="submit-button" name="submit">Submit</button>
                           </div>
                         </div>
                       </form>
