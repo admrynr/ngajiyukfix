@@ -18,10 +18,9 @@
                                 <h3 class="tm-text-primary tm-categories-text video-category">Categories:</h3>
                                 <ul class="nav tm-category-list">
                                     <li class="nav-item tm-category-item"><a href="#" class="tm-category-link active">All</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link">Drone Shots</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link">Nature</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link">Actions</a></li>
-                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link">Featured</a></li>
+                                    @foreach ($categories as $category)
+                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link">{{$category->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>        
                         </div>

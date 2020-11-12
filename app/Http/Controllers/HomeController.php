@@ -254,9 +254,9 @@ class HomeController extends Controller
 
     public function category()
     {
-        $category = Categories::paginate(4);
+        $category = Categories::all();
 
-        return view('category', ['category' => $category]);
+        return view('video', ['categories' => $category]);
     }
 
     public function categorydetail($id)

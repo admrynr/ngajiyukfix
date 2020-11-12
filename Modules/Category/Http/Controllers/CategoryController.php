@@ -25,7 +25,7 @@ class CategoryController extends Controller
         $category = Categories::with('products')->get();
         //return $category;
         
-        return view('category::index', ['categories' => $category])->withTitle($title);
+        return view('category', ['categories' => $category])->withTitle($title);
     }
 
     public function data(Request $request )
