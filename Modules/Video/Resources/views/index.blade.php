@@ -39,8 +39,8 @@
                                 <h4 class="header-title">{{ $title }} List</h4>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="{{ route('category.index') }}" class="btn {{ empty(Request::get('filter')) ? 'btn-primary' : 'btn-secondary' }} text-white">All (<span id="total"></span>)</a>
-                                <a href="{{ route('category.index') }}?filter=trashed"  class="btn {{ !empty(Request::get('filter')) && Request::get('filter') == 'trashed' ? 'btn-primary' : 'btn-secondary' }} text-white">Trashed (<span id="trashed"></span>)</a>
+                                <a href="{{ route('video.index') }}" class="btn {{ empty(Request::get('filter')) ? 'btn-primary' : 'btn-secondary' }} text-white">All (<span id="total"></span>)</a>
+                                <a href="{{ route('video.index') }}?filter=trashed"  class="btn {{ !empty(Request::get('filter')) && Request::get('filter') == 'trashed' ? 'btn-primary' : 'btn-secondary' }} text-white">Trashed (<span id="trashed"></span>)</a>
                                 <input type="hidden" id="filter" value="{{ empty(Request::get('filter')) ? 'all' : Request::get('filter') }}">
                             </div>
                             </div>
@@ -86,13 +86,15 @@
                     @else
                         <input type="hidden" id="selectsekolah" value="{{ Session::get('user')->sekolah_id }}">
                     @endif --}}
-                    <table id="dataTableCategory" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="dataTableVideo" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
                             <th></th>
                             <th style="width:5% ">No.</th>
-                            <th>Image</th>
-                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Id Category</th>
+                            <th>Video Url</th>
+                            <th>Content</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -114,9 +116,10 @@
 
 
 @section('script-bottom')
-        <script type="text/javascript" src="{{ asset('js/category.js') }}"></script>
+        <script type="text/javascript" src="{{ asset("js/video.js") }}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
+            	console.log($('#filter').val());
                 appuser.handleUserPage($('#filter').val());
                 jQuery('#effective_date').datepicker({
                     autoclose: true,

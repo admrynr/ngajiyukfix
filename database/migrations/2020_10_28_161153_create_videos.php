@@ -18,6 +18,9 @@ class CreateVideos extends Migration
             $table->string('video_title');
             $table->integer('id_category');
             $table->string('video_url');
+            $table->text('content')->nullable();
+            $table->softDeletes();
+
         });
     }
 

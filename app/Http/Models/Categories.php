@@ -4,6 +4,7 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Models\Product;
+use App\Http\Models\Video;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Categories extends Model
@@ -17,6 +18,11 @@ class Categories extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
     }
 
     use SoftDeletes;
