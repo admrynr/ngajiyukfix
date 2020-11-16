@@ -47,27 +47,23 @@ var user = {
 					searchable: false,
 					render: function(data, type, row){
 						if(data.deleted_at != null){
-						var button = "<button type='button' data-id='"+data.id+"' class='btn dotip btn-success btn-outline btn-circle m-r-5 btn-edt-data' data-toggle='tooltip' title='Edit Video'>"
-										+"<i class='ti-pencil-alt'></i>"
-									+"</button>"
-									// +"<button type='button' data-id='"+data.id+"' class='btn btn-info btn-outline btn-circle btn-sm m-r-5 btn-show-permission' data-toggle='tooltip' title='Show Permission'>"
-									//	+"<i class='fa fa-certificate'></i>"
-									// +"</button>"
-									+"<a data-toggle='modal' data-target='#deleteModal'><button type='button' data-url='"+baseURL+"/admin/video/destroy/"+data.id+"' class='btn dotip btn-danger btn-outline btn-circle m-r-5 btn-delete-data' id='btn-delete-data' data-toggle='tooltip' title='Delete video'>"
-										+"<i class='ti-trash'></i>"
+									return button = "<a data-toggle='modal' data-target='#restoreModal'><button type='button' data-url='"+baseURL+"/admin/video/restore/"+data.id_video+"' class='btn dotip btn-info btn-outline btn-circle m-r-5 btn-restore-data' data-toggle='tooltip' title='Restore Video'>"
+										+"<i class='ti-reload'></i>"
+									+"</button></a>"
+									+"<a data-toggle='modal' data-target='#deleteModal'><button type='button' data-url='"+baseURL+"/admin/video/forcedelete/"+data.id_video+"' class='btn dotip btn-danger btn-outline btn-circle m-r-5 btn-delete-data' data-toggle='tooltip' title='Permantly Delete Video'>"
+										+"<i class='fa fa-times'></i>"
 									+"</button></a>";
 						} else {
-						var button = "<button type='button' data-id='"+data.id+"' class='btn dotip btn-success btn-outline btn-circle m-r-5 btn-edt-data' data-toggle='tooltip' title='Edit Video'>"
+						return button = "<a><button type='button' data-url='"+baseURL+"/admin/video/edit/"+data.id_video+"' data-id='"+data.id_video+"' class='btn dotip btn-success btn-outline btn-circle m-r- btn-edit-data ' data-toggle='tooltip' title='Edit Video'>"
 										+"<i class='ti-pencil-alt'></i>"
-									+"</button>"
+									+"</button></a>"
 									// +"<button type='button' data-id='"+data.id+"' class='btn btn-info btn-outline btn-circle btn-sm m-r-5 btn-show-permission' data-toggle='tooltip' title='Show Permission'>"
 									//	+"<i class='fa fa-certificate'></i>"
 									// +"</button>"
-									+"<a data-toggle='modal' data-target='#deleteModal'><button type='button' data-url='"+baseURL+"/admin/video/destroy/"+data.id+"' class='btn dotip btn-danger btn-outline btn-circle m-r-5 btn-delete-data' id='btn-delete-data' data-toggle='tooltip' title='Delete video'>"
+									+"<a data-toggle='modal' data-target='#deleteModal'><button type='button' data-url='"+baseURL+"/admin/video/destroy/"+data.id_video+"' class='btn dotip btn-danger btn-outline btn-circle m-r-5 btn-delete-data' data-toggle='tooltip' title='Delete Video'>"
 										+"<i class='ti-trash'></i>"
 									+"</button></a>";
 						}
-						return button;
 					}
 				}
 			],
@@ -118,7 +114,7 @@ var user = {
 		})
 	},
 
-	handleModalShow: function(){
+	/*handleModalShow: function(){
 		$(".add-data").on("click", function(){
 			var modal = $(".dataModal");
 			var form = $(".dataForm");
@@ -128,7 +124,7 @@ var user = {
 			form.find("#method").val("store");
 			form.find("#id").val("");
 		})
-	},
+	},*/
 
 	handlePostData : function(){
 		$('.dataForm').ajaxForm({
@@ -196,7 +192,7 @@ var user = {
 	},
 
 	handleEditData : function(){
-		$("#dataTableCategory tbody").on("click", ".btn-edt-data",function(){
+		$("#dataTableVideo tbody").on("click", ".btn-edit-data",function(){
             console.log('clicked edit');
 			$.ajax({
 				url: baseURL+"/admin/category/edit/"+$(this).attr("data-id"),
@@ -215,10 +211,10 @@ var user = {
         var about = $('#about');
 
 		modal.modal("show");
-		modal.find(".modal-title").text("Edit Data Category");
+		modal.find(".modal-title").text("Edit Data Video");
 
-		form.find("#id").val(data.id);
-		form.find("#name").val(data.name);
+		form.find("#id").val(data.id_video);
+		form.find("#name").val(data.video_title);
 
         // about.html(data.about);
 		form.find("#method").val("update");
@@ -242,18 +238,36 @@ var user = {
 	},
 
 	handleDeleteData : function(){
-		$("#dataTableCategory tbody").on("click", ".btn-delete-data", function(){
+		$("#dataTableVideo tbody").on("click", ".btn-delete-data", function(){
 			url = $(this).attr('data-url');
 		});
 
 		$('#btn-hapus').on('click',function(){
+			console.log(url);
 			$.ajax({
 				url: url,
 				type: 'GET',
 				dataType: 'JSON',
 				success: function(data){
 					$('#deleteModal').modal('hide');
-					notification._toast('Success', 'Success Delete Category', 'success');
+					notification._toast('Success', 'Success Delete Video', 'success');
+					user.handleTable($('#filter').val());
+				}
+			});
+		});
+
+		$("#dataTableVideo tbody").on("click", ".btn-restore-data", function(){
+			url = $(this).attr('data-url');
+		});
+
+		$('#btn-restore').on('click',function(){
+			$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'JSON',
+				success: function(data){
+					$('#restoreModal').modal('hide');
+					notification._toast('Success', 'Success Restore Data', 'success');
 					user.handleTable($('#filter').val());
 				}
 			});
@@ -262,7 +276,7 @@ var user = {
 
 	handleInfoData : function(){
 		$.ajax({
-			url: baseURL+"/admin/category/info",
+			url: baseURL+"/admin/video/info",
 			type: 'GET',
 			dataType: 'JSON',
 			success: function(data){

@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use App\Http\Models\Video;
 use Yajra\Datatables\Datatables;
+use App\Http\Models\Categories;
 
 
 
@@ -36,13 +37,31 @@ class VideoController extends Controller
         return datatables::of($video)->make(true);
     }
 
+     //get info data
+    public function info(Request $request)
+    {
+        $video = Video::all();
+        $trashed = Video::onlyTrashed()->count();
+
+
+        $info = [
+            'total' => $video->count(),
+            'trashed' => $trashed,
+        ];
+
+        return json_encode($info);
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return Response
      */
     public function create()
     {
-        return view('video::create');
+        $title = 'Create Video';
+        $category = Categories::get();
+
+        return view('video::create')->withTitle($title)->withCategory($category);
     }
 
     /**
@@ -93,7 +112,8 @@ class VideoController extends Controller
      */
     public function destroy($id)
     {
-        $video = Video::where('id', $id);
+        $video = Video::where('id_video', $id);
+        //dd($video);
 
         if(!$video->delete()){
             $data = [
@@ -106,6 +126,19 @@ class VideoController extends Controller
                 'message' => 'Success Update Data'
             ];
         }
+
+        return json_encode($data);
+    }
+
+    //restore data
+    public function restore($id, Request $request)
+    {
+        $product = Video::withTrashed()->where('id_video', $id)->restore();
+
+            $data = [
+                'status' => 1,
+                'message' => 'Success Update Data'
+            ];
 
         return json_encode($data);
     }

@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     <div class="col-md-6 text-right">
-                        <a class="pull-right add-data" href="#" id="add-data">
+                        <a class="pull-right add-data" href="{{ route('video.create')}}" id="add-data">
                         <span class="btn btn-rounded btn-success waves-effect waves-light">
                             <i class="ti-plus"></i> Create {{$title}}
                         </span>
@@ -111,7 +111,7 @@
 </div> <!-- end container-fluid -->
 @endsection
 @section('data-content')
-    @include('category::form.category')
+    @include('video::form.video')
 @endsection
 
 
