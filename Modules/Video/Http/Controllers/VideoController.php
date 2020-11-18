@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use App\Http\Models\Video;
 use Yajra\Datatables\Datatables;
 use App\Http\Models\Categories;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -71,7 +72,19 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $datas = new Video();
+        $datas->video_title = $request->title;
+        $datas->user_id = Auth::user()->id;
+        $datas->id_category = $request->category;
+        $datas->video_url = $request->url;
+        $datas->content = $request->area;
+        $datas->thumbnail = 'http://img.youtube.com/vi/' . $request->thumbnail . '/mqdefault.jpg';
+
+        $datas->save();
+
+        return redirect()->route('video.index')->withErrors(['success' => 'Success create Video']);
+
     }
 
     /**

@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('video.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="row">
         <div class="col-xl-12">
@@ -59,7 +59,7 @@
                                     <input class="form-control" type="text" name="title" required>
                                 </div>
                             </div>
-                            <div class='col-md-6'>
+                            <div class='col-md-12'>
                                 <div class="form-group">
                                     <label>Category</label>
                                     <select class="form-control"  name="category" required>
@@ -69,11 +69,19 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class='col-md-12'>
                                 <div class="form-group">
-                                <textarea id="elm1" name="area" rows="20"></textarea>
+                                    <label>Video URL</label>
+                                    <input class="form-control" type="text" name="url" id="url" required>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="elm1" name="area" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" name="thumbnail" id="thumbnail">
                         </div>
                     </div>
                 </div>
@@ -199,5 +207,14 @@
                 $('#fotoimage').attr('src', e.target.result);
                 $('#valueresetfoto').val('');
             };
+
+            $(function () {
+                $("#url").change(function () {
+                    var url = $("#url").val();
+                    var thumbnail = url.substring(url.length - 11, url.length);
+                    $("#thumbnail").val(thumbnail);
+                    console.log(thumbnail);
+                })
+            });
         </script>
 @endsection

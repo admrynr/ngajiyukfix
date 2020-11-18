@@ -129,7 +129,7 @@ var user = {
 	handlePostData : function(){
 		$('.dataForm').ajaxForm({
 			type: 'POST',
-			url: baseURL+'/admin/category/store',
+			url: baseURL+'/admin/video/store',
 			beforeSubmit : function(){
 				if ($('#method') == 'store'){
 					foto = $('#foto')[0].files[0].size;
@@ -138,9 +138,11 @@ var user = {
 						return false;
 					}
 				}
+				$('#thumbnail').val = $('#url');
 				$('#loaders').css('display','block');
 				$('.progress-bar').css('width','0%').text('0%');
 				progressbar.iUploadHandle(true);
+				console.log($('thumbnail'));
 			},
 			uploadProgress: function(event, position, total, percentComplete) {
 				var persen = percentComplete + '%';
