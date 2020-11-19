@@ -43,8 +43,9 @@ var user = {
 					}else{
 						return '<image width="75px" class="rounded mx-auto d-block"' 
 					+'src="'+baseURL+'/images/default.jpg">';
+						}
 					}
-				}},
+				},
 				{ data: 'name', name: 'name' },
 				{
 					data: null,

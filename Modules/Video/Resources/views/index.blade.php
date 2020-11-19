@@ -48,6 +48,11 @@
                     </div>
             </div>
         <div class="col-xl-12">
+            @if($errors->has('success'))
+            <div class="alert alert-success bg-success text-white font-16 " style="font-weight:bold">
+                {{ $errors->first('success') }}
+            </div>
+            @endif
             <div class="card m-b-20">
                 <div class="card-body">
                     <div class="row">
@@ -91,7 +96,9 @@
                         <tr>
                             <th></th>
                             <th style="width:5% ">No.</th>
+                            <th>Thumbnail</th>
                             <th>Title</th>
+                            <th>User</th>
                             <th>Id Category</th>
                             <th>Video Url</th>
                             <th>Content</th>

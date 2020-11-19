@@ -29,8 +29,9 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('video.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('video.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
+    <input type="hidden" name="id" value="{{ $video->id_video }}">
     <div class="row">
         <div class="col-xl-12">
                 <div class="card m-b-20">
@@ -56,7 +57,7 @@
                             <div class='col-md-12'>
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input class="form-control" type="text" name="title" required>
+                                    <input class="form-control" type="text" name="title" value="{{$video->video_title}}" required>
                                 </div>
                             </div>
                             <div class='col-md-12'>
@@ -64,7 +65,7 @@
                                     <label>Category</label>
                                     <select class="form-control"  name="category" required>
                                         @foreach($category as $key)
-                                        <option value="{{ $key->id }}">{{ $key->name }}</option>
+                                        <option value="{{ $key->id }}" {{ $key->id == $video->id_category ? 'selected' : '' }}>{{ $key->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -72,16 +73,16 @@
                             <div class='col-md-12'>
                                 <div class="form-group">
                                     <label>Video URL</label>
-                                    <input class="form-control" type="text" name="url" id="url" required>
+                                    <input class="form-control" type="text" name="url" value="{{$video->video_url}}" id="url" required>
                                 </div>
                             </div>
                             <div class='col-md-12'>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" name="area" rows="10"></textarea>
+                                    <textarea class="form-control" name="area" rows="10">{{$video->content}}</textarea>
                                 </div>
                             </div>
-                            <input type="hidden" name="thumbnail" id="thumbnail">
+                            <input type="hidden" name="thumbnail" id="thumbnail" value="{{$video->thumbnail}}">
                         </div>
                     </div>
                 </div>

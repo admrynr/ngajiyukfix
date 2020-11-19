@@ -72,14 +72,15 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        $thumbnail = 'http://img.youtube.com/vi/' . $request->thumbnail . '/mqdefault.jpg';
+        //dd($thumbnail);
         $datas = new Video();
         $datas->video_title = $request->title;
         $datas->user_id = Auth::user()->id;
         $datas->id_category = $request->category;
         $datas->video_url = $request->url;
         $datas->content = $request->area;
-        $datas->thumbnail = 'http://img.youtube.com/vi/' . $request->thumbnail . '/mqdefault.jpg';
+        $datas->thumbnail = $thumbnail;
 
         $datas->save();
 
@@ -104,7 +105,13 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        return view('video::edit');
+        $title = 'Video Management';
+
+        $video = Video::where('id_video', $id)->first();
+
+        $category = Categories::all();
+
+        return view('video::edit')->withVideo($video)->withCategory($category)->withTitle($title);
     }
 
     /**
@@ -113,9 +120,23 @@ class VideoController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $thumbnail = 'http://img.youtube.com/vi/' . $request->thumbnail . '/mqdefault.jpg';
+
+        $datas = [
+            'video_title' => $request->title,
+            'user_id' => Auth::user()->id,
+            'id_category' => $request->category,
+            'video_url' => $request->url,
+            'content' => $request->area,
+            'thumbnail' => $thumbnail,
+        ];
+        
+        $updatevideo = Video::where('id_video',$id)->update($datas);
+
+        return redirect()->route('video.index')->withErrors(['success' => 'Success update Video']);
     }
 
     /**

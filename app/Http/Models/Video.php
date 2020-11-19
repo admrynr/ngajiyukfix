@@ -3,6 +3,7 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -15,5 +16,10 @@ class Video extends Model
     use SoftDeletes;
     
     protected $dates = ['deleted_at'];
+
+    public function users()
+    {
+    	return $this->belongsTo(User::class);
+    }
 
 }

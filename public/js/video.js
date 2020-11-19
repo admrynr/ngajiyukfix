@@ -7,7 +7,7 @@ var appuser = {
 		user.handleModalClose();
 		user.handleLogout();
 		user.handlePostData();
-		user.handleEditData();
+		//user.handleEditData();
 		user.handleInfoData();
 		user.handleDeleteData();
     },
@@ -36,7 +36,18 @@ var user = {
 						return meta.row + meta.settings._iDisplayStart + 1;
 					}
 				},
+				{ data: null, name: 'thumbnail', render:function(data){
+					if(data.thumbnail != null){
+						return '<image width="75px" class="rounded mx-auto d-block"' 
+					+'src="'+data.thumbnail+'">';
+					}else{
+						return '<image width="75px" class="rounded mx-auto d-block"' 
+					+'src="'+baseURL+'/images/default.jpg">';
+						}
+					}
+				},
 				{ data: 'video_title', name: 'video_title' },
+				{ data: 'user_id', name: 'user' },
 				{ data: 'id_category', name: 'id_category' },
 				{ data: 'video_url', name: 'video_url' },
 				{ data: 'content', name: 'content' },
@@ -54,7 +65,7 @@ var user = {
 										+"<i class='fa fa-times'></i>"
 									+"</button></a>";
 						} else {
-						return button = "<a><button type='button' data-url='"+baseURL+"/admin/video/edit/"+data.id_video+"' data-id='"+data.id_video+"' class='btn dotip btn-success btn-outline btn-circle m-r- btn-edit-data ' data-toggle='tooltip' title='Edit Video'>"
+						return button = "<a href='"+baseURL+"/admin/video/edit/"+data.id_video+"'><button type='button' data-id='"+data.id_video+"' class='btn dotip btn-success btn-outline btn-circle m-r- btn-edit-data ' data-toggle='tooltip' title='Edit Video'>"
 										+"<i class='ti-pencil-alt'></i>"
 									+"</button></a>"
 									// +"<button type='button' data-id='"+data.id+"' class='btn btn-info btn-outline btn-circle btn-sm m-r-5 btn-show-permission' data-toggle='tooltip' title='Show Permission'>"
