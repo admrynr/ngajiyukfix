@@ -176,4 +176,45 @@ class VideoController extends Controller
 
         return json_encode($data);
     }
+
+     //force delete data
+    public function forcedelete($id, Request $request)
+    {
+        $user = Video::where('id_video', $id);
+
+        if(!$user->forcedelete()){
+            $data = [
+                'status' => 2,
+                'message' => 'Fail Update Data'
+            ];
+        }else{
+            $data = [
+                'status' => 1,
+                'message' => 'Success Update Data'
+            ];
+        }
+
+        return json_encode($data);
+    }
+
+    //bulk data
+    public function bulk($data, Request $request)
+    {
+        $datas = explode(',',$request->id);
+        foreach($datas as $key){
+            if($data == 'trash')
+            $bulk = Video::where('id_video',$key)->delete();
+            else if($data == 'restore')
+            $bulk = Video::where('id_video',$key)->restore();
+            else 
+            $bulk = Video::where('id_video',$key)->forcedelete();
+        }
+        
+        $data = [
+            'status' => 1,
+            'message' => 'Success Update Data'
+        ];
+
+        return json_encode($data);
+    }
 }

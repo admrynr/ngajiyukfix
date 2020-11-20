@@ -125,7 +125,7 @@ var user = {
 		})
 	},
 
-	/*handleModalShow: function(){
+	handleModalShow: function(){
 		$(".add-data").on("click", function(){
 			var modal = $(".dataModal");
 			var form = $(".dataForm");
@@ -135,7 +135,7 @@ var user = {
 			form.find("#method").val("store");
 			form.find("#id").val("");
 		})
-	},*/
+	},
 
 	handlePostData : function(){
 		$('.dataForm').ajaxForm({
@@ -237,12 +237,12 @@ var user = {
 		$('#bulk-title').html(data);
 		$('#btn-bulk').on('click',function(){
 			$.ajax({
-				url: baseURL+'/admin/category/bulk/'+data+'?id='+bulkdata,
+				url: baseURL+'/admin/video/bulk/'+data+'?id='+bulkdata,
 				type: 'GET',
 				dataType: 'JSON',
 				success: function(data){
 					$('#bulkModal').modal('hide');
-					notification._toast('Success', 'Success Edit Category', 'success');
+					notification._toast('Success', 'Success Edit Video', 'success');
 					user.handleTable($('#filter').val());
 				}
 			});
@@ -253,6 +253,7 @@ var user = {
 	handleDeleteData : function(){
 		$("#dataTableVideo tbody").on("click", ".btn-delete-data", function(){
 			url = $(this).attr('data-url');
+			console.log(url);
 		});
 
 		$('#btn-hapus').on('click',function(){

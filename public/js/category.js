@@ -251,6 +251,7 @@ var user = {
 	handleDeleteData : function(){
 		$("#dataTableCategory tbody").on("click", ".btn-delete-data", function(){
 			url = $(this).attr('data-url');
+						console.log(url);
 		});
 
 		$('#btn-hapus').on('click',function(){

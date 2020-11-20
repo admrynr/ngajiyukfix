@@ -21,6 +21,8 @@ Route::prefix('admin/video')->middleware('auth','adminonly')->group(function() {
     Route::post('store', 'VideoController@store')->name('video.store');
     Route::get('edit/{id}', 'VideoController@edit')->name('video.edit');
     Route::post('update', 'VideoController@update')->name('video.update');
+    Route::get('forcedelete/{id}', 'VideoController@forcedelete')->name('video.forcedelete');
+    Route::get('bulk/{data}', 'VideoController@bulk')->name('video.bulk');
 
 
 });
