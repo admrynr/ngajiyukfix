@@ -43,8 +43,9 @@ var user = {
 					}else{
 						return '<image width="75px" class="rounded mx-auto d-block"' 
 					+'src="'+baseURL+'/images/default.jpg">';
+						}
 					}
-				}},
+				},
 				{ data: 'name', name: 'name' },
 				{
 					data: null,
@@ -250,6 +251,7 @@ var user = {
 	handleDeleteData : function(){
 		$("#dataTableCategory tbody").on("click", ".btn-delete-data", function(){
 			url = $(this).attr('data-url');
+						console.log(url);
 		});
 
 		$('#btn-hapus').on('click',function(){

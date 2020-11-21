@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use App\Http\Models\Video;
 use Yajra\Datatables\Datatables;
 use App\Http\Models\Categories;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -71,7 +72,20 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $thumbnail = 'http://img.youtube.com/vi/' . $request->thumbnail . '/mqdefault.jpg';
+        //dd($thumbnail);
+        $datas = new Video();
+        $datas->video_title = $request->title;
+        $datas->user_id = Auth::user()->id;
+        $datas->id_category = $request->category;
+        $datas->video_url = $request->url;
+        $datas->content = $request->area;
+        $datas->thumbnail = $thumbnail;
+
+        $datas->save();
+
+        return redirect()->route('video.index')->withErrors(['success' => 'Success create Video']);
+
     }
 
     /**
@@ -91,7 +105,13 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        return view('video::edit');
+        $title = 'Video Management';
+
+        $video = Video::where('id_video', $id)->first();
+
+        $category = Categories::all();
+
+        return view('video::edit')->withVideo($video)->withCategory($category)->withTitle($title);
     }
 
     /**
@@ -100,9 +120,23 @@ class VideoController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $thumbnail = 'http://img.youtube.com/vi/' . $request->thumbnail . '/mqdefault.jpg';
+
+        $datas = [
+            'video_title' => $request->title,
+            'user_id' => Auth::user()->id,
+            'id_category' => $request->category,
+            'video_url' => $request->url,
+            'content' => $request->area,
+            'thumbnail' => $thumbnail,
+        ];
+        
+        $updatevideo = Video::where('id_video',$id)->update($datas);
+
+        return redirect()->route('video.index')->withErrors(['success' => 'Success update Video']);
     }
 
     /**
@@ -139,6 +173,47 @@ class VideoController extends Controller
                 'status' => 1,
                 'message' => 'Success Update Data'
             ];
+
+        return json_encode($data);
+    }
+
+     //force delete data
+    public function forcedelete($id, Request $request)
+    {
+        $user = Video::where('id_video', $id);
+
+        if(!$user->forcedelete()){
+            $data = [
+                'status' => 2,
+                'message' => 'Fail Update Data'
+            ];
+        }else{
+            $data = [
+                'status' => 1,
+                'message' => 'Success Update Data'
+            ];
+        }
+
+        return json_encode($data);
+    }
+
+    //bulk data
+    public function bulk($data, Request $request)
+    {
+        $datas = explode(',',$request->id);
+        foreach($datas as $key){
+            if($data == 'trash')
+            $bulk = Video::where('id_video',$key)->delete();
+            else if($data == 'restore')
+            $bulk = Video::where('id_video',$key)->restore();
+            else 
+            $bulk = Video::where('id_video',$key)->forcedelete();
+        }
+        
+        $data = [
+            'status' => 1,
+            'message' => 'Success Update Data'
+        ];
 
         return json_encode($data);
     }
