@@ -26,7 +26,7 @@ Route::get('/blog/detail', function (){
     return view('blog-detail');
 });
 
-Route::get('/video', 'HomeController@category');
+Route::get('/video', 'HomeController@video');
 
 Route::get('/livestream', function (){
     return view('livestream');

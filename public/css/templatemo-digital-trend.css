@@ -738,6 +738,15 @@ https://templatemo.com/tm-538-digital-trend
     margin-right: 11px;
 }
 
+.player-icon {
+  opacity: 0.8;
+  transition: all 0.3s ease;  
+}
+
+.player-link:hover .player-icon {
+  opacity: 1;
+}
+
 
   /*---------------------------------------
      FOOTER              

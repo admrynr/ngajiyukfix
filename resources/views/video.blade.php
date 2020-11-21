@@ -14,71 +14,36 @@
 
                     <div class="row" data-aos="fade-up">
                         <div class="col-12">
-                            <div class="tm-categories-container mb-5">
+                            <div class="tm-categories-container mb-4">
                                 <h3 class="tm-text-primary tm-categories-text video-category">Categories:</h3>
                                 <ul class="nav tm-category-list">
-                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link active">All</a></li>
+                                    <li class="nav-item tm-category-item"><a href="/video/?filter=all" class="tm-category-link {{ empty(Request::get('filter')) || Request::get('filter') == 'all' ? 'active' : '' }}">All</a></li>
                                     @foreach ($categories as $category)
-                                    <li class="nav-item tm-category-item"><a href="#" class="tm-category-link">{{$category->name}}</a></li>
+                                    <li class="nav-item tm-category-item"><a href="/video/?filter={{$category->id}}" class="tm-category-link {{ !empty(Request::get('filter')) && Request::get('filter') == $category->id ? 'active' : '' }}">{{$category->name}}</a></li>
+                                    <input type="hidden" id="filter" value="{{ empty(Request::get('filter')) ? 'all' : Request::get('filter') }}">
                                     @endforeach
                                 </ul>
                             </div>        
                         </div>
                     </div>
+                    <div class="container pl-0 pr-0">
                     <div class="row">
-                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/blog/blog-sidebar-image.jpg" class="img-fluid" alt="blog">
+                      @foreach ($videos as $video)
+                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <img style="z-index: -1; position: relative;" src="{{$video->thumbnail}}" class="img-fluid" alt="blog">
+                        <a class="player-link" style="position: absolute; top: 25%; left: 40%" href="/video/detail/{{$video->id_video}}">
+                        <i class="fa fa-play-circle fa-5x player-icon"></i>
+                        </a>
 
                         <div class="blog-info mt-2 mb-2">
 
-                          <h3><a href="blog-detail.html">Why Truly Accessible Design Benefits Everyone</a></h3>
+                          <h3><a href="/video/detail/{{$video->id_video}}">{{$video->video_title}}</a></h3>
                         </div>
                       </div>
+                      @endforeach
 
-                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/blog/blog-sidebar-image01.jpg" class="img-fluid" alt="blog">
-
-                        <div class="blog-info mt-2 mb-2">
-
-                          <h3><a href="blog-detail.html">Be Humble About What You Know</a></h3>
-                        </div>
-                      </div>
-
-                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/blog/blog-sidebar-image02.jpg" class="img-fluid" alt="blog">
-
-                        <div class="blog-info mt-2 mb-2">
-
-                          <h3><a href="blog-detail.html">The Mistakes I Made As a Coding Beginner</a></h3>
-                        </div>
-                      </div>
-                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/blog/blog-sidebar-image.jpg" class="img-fluid" alt="blog">
-
-                        <div class="blog-info mt-2 mb-2">
-
-                          <h3><a href="blog-detail.html">Why Truly Accessible Design Benefits Everyone</a></h3>
-                        </div>
-                      </div>
-
-                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/blog/blog-sidebar-image01.jpg" class="img-fluid" alt="blog">
-
-                        <div class="blog-info mt-2 mb-2">
-
-                          <h3><a href="blog-detail.html">Be Humble About What You Know</a></h3>
-                        </div>
-                      </div>
-
-                      <div class="blog-sidebar col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/blog/blog-sidebar-image02.jpg" class="img-fluid" alt="blog">
-
-                        <div class="blog-info mt-2 mb-2">
-
-                          <h3><a href="blog-detail.html">The Mistakes I Made As a Coding Beginner</a></h3>
-                        </div>
-                      </div>
                   </div>
+                </div>
 
                     </div>
 

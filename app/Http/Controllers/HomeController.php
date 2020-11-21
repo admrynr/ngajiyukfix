@@ -8,6 +8,7 @@ use App\Http\Models\Product;
 use App\Http\Models\ProductMedia;
 use App\User;
 use App\Http\Models\Categories;
+use App\Http\Models\Video;
 use App\Http\Models\Blog;
 use App\Http\Models\Cart;
 use App\Http\Models\Auction;
@@ -252,11 +253,15 @@ class HomeController extends Controller
         return view('forgot');
     }
 
-    public function category()
+    public function video(Request $request)
     {
         $category = Categories::all();
+        if ($request->filter == 'all' || empty($request->filter))
+        $video = Video::all();
+        else
+        $video = Video::where('id_category', $request->filter)->get();
 
-        return view('video', ['categories' => $category]);
+        return view('video', ['categories' => $category, 'videos' => $video]);
     }
 
     public function categorydetail($id)
