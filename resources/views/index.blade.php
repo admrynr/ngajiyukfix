@@ -86,7 +86,7 @@
                                         <small>{{$video->categories->name}}</small>
 
                                         <h3>
-                                             <a href="project-detail.html">
+                                             <a href="/video/detail/{{$video->id_video}}">
                                                   <span>{{$video->video_title}}</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
