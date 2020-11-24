@@ -72,7 +72,7 @@
                             <div class='col-md-12'>
                                 <div class="form-group">
                                     <label>Video URL</label>
-                                    <input class="form-control" type="text" name="url" id="url" required>
+                                    <input class="form-control" type="text" name="urlnew" id="urlnew" required>
                                 </div>
                             </div>
                             <div class='col-md-12'>
@@ -209,8 +209,8 @@
             };
 
             $(function () {
-                $("#url").change(function () {
-                    var url = $("#url").val();
+                $("#urlnew").change(function () {
+                    var url = $("#urlnew").val();
                     var thumbnail = url.substring(url.length - 11, url.length);
                     $("#thumbnail").val(thumbnail);
                     console.log(thumbnail);

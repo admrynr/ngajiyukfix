@@ -49,8 +49,6 @@ var user = {
 				{ data: 'video_title', name: 'video_title' },
 				{ data: 'user_id', name: 'user' },
 				{ data: 'id_category', name: 'id_category' },
-				{ data: 'video_url', name: 'video_url' },
-				{ data: 'content', name: 'content' },
 				{
 					data: null,
 					orderable: false,

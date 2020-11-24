@@ -12,22 +12,23 @@
 */
 
 //frontend
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('/login', 'LoginController@showLoginForm')->name('login');
 
+//blog
 Route::get('/blog', function (){
     return view('blog');
 });
-
 Route::get('/blog/detail', function (){
     return view('blog-detail');
 });
 
+//video
 Route::get('/video', 'HomeController@video');
+Route::get('/video/detail/{id}', 'HomeController@videodetail');
 
+//livestream
 Route::get('/livestream', function (){
     return view('livestream');
 });

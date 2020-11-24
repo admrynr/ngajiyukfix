@@ -18,11 +18,5 @@ class InitialUserSeeder extends Seeder
         DB::table('users')->insert([
             ['name' => 'Super Admin', 'email' => 'super@admin.com', 'password' => bcrypt('password'), 'is_verified' => 1,'level' => 1, 'created_at' => $now, 'updated_at' => $now],
         ]);
-
-        DB::table('categories')->insert([
-            ['name' => 'Uncategorized'],
-        ]);
-
-
     }
 }

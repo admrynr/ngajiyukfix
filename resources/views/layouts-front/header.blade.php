@@ -4,7 +4,7 @@
         <div class="container">
             <a class="navbar-brand" href="/">
               <i class="fa fa-line-chart"></i>
-              Digital Trend
+              Moslem Teeny
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"

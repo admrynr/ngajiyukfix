@@ -78,8 +78,9 @@ class VideoController extends Controller
         $datas->video_title = $request->title;
         $datas->user_id = Auth::user()->id;
         $datas->id_category = $request->category;
-        $datas->video_url = $request->url;
+        $datas->video_url = $request->urlnew;
         $datas->content = $request->area;
+        $datas->key = $request->thumbnail;
         $datas->thumbnail = $thumbnail;
 
         $datas->save();
@@ -129,8 +130,9 @@ class VideoController extends Controller
             'video_title' => $request->title,
             'user_id' => Auth::user()->id,
             'id_category' => $request->category,
-            'video_url' => $request->url,
+            'video_url' => $request->urlnew,
             'content' => $request->area,
+            'key' => $request->thumbnail,
             'thumbnail' => $thumbnail,
         ];
         

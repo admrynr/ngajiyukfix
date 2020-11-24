@@ -1,6 +1,6 @@
 <head>
 
-     <title>Digital Trend - Blog Detail</title>
+     <title>Moslem Teeny</title>
 <!--
 
 DIGITAL TREND

@@ -25,6 +25,15 @@ use Veritrans_Snap;
 
 class HomeController extends Controller
 {
+    /*index*/
+    public function index()
+    {
+      $video = Video::limit(5)->get();
+      //dd($video);
+
+      return view('index')->withVideos($video);
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -36,7 +45,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    /*public function index()
     {
       $category = Categories::where('is_featured', 1)->get();
       $blog = Blog::all();
@@ -66,7 +75,7 @@ class HomeController extends Controller
       $todayauction = Auction::whereDate('bid_end',$datenow)->where('status',2)->with('product.categories','winner')->limit(2)->get();
 
         return view('home', ['auction' => $todayauction, 'blog' => $blog, 'category' => $category, 'new' => $new, 'feature' => $feature, 'bestsell' => $bestsell]);
-    }
+    }*/
 
     public function product()
     {
@@ -262,6 +271,14 @@ class HomeController extends Controller
         $video = Video::where('id_category', $request->filter)->get();
 
         return view('video', ['categories' => $category, 'videos' => $video]);
+    }
+
+    public function videodetail($id)
+    {
+      $video = Video::where('id_video', $id)->first();
+      //dd($video);
+
+      return view('videodetail')->withVideo($video);
     }
 
     public function categorydetail($id)

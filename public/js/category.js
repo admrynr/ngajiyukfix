@@ -131,7 +131,7 @@ var user = {
 			var form = $(".dataForm");
 
 			modal.modal("show");
-			modal.find(".modal-title").text("Create User");
+			modal.find(".modal-title").text("Create Category");
 			form.find("#method").val("store");
 			form.find("#id").val("");
 		})

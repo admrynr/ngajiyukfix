@@ -47,16 +47,21 @@
                     <div class="col-lg-7 mx-auto col-md-10 col-12">
                          <div class="about-info">
 
-                              <h2 class="mb-4" data-aos="fade-up">the best <strong>Digital Marketing agency</strong> in Rio de Janeiro</h2>
+                              <h2 class="mb-4" data-aos="fade-up">Profil <strong>Moslem Teeny</strong></h2>
 
-                              <p class="mb-0" data-aos="fade-up">Total 5 HTML pages are included in this template from TemplateMo website. Please check 2 <a href="blog.html">blog</a> pages, <a href="project-detail.html">project</a> page, and <a href="contact.html">contact</a> page. 
-                              <br><br>You are <strong>allowed</strong> to use this template for commercial or non-commercial purpose. You are NOT allowed to redistribute the template ZIP file on template collection websites.</p>
-                         </div>                    </div>
+                              <p class="mb-0" data-aos="fade-up">Di sini tempat menampilkan profil Moslem Teeny dengan diwakili oleh situs yang terdiri dari tiga konten utama yaitu <a href="/blog">blog</a>, <a href="/video">video</a> , dan <a href="/livestream">livestream</a>. 
+                              <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                         </div>                    
+                    </div>
+                    <div class="about-image" data-aos="fade-up" data-aos-delay="200">
+
+                          <img src="images/office.png" class="img-fluid" alt="office">
+                    </div>
                </div>
           </div>
-          <div class="container col-12">
+          <!--<div class="container col-12">
                <img src="/images/tentang-kami.jpg" data-aos="fade-up" class="img-fluid mt-5 mx-auto d-block" alt="office">
-          </div>
+          </div>-->
      </section>
    
 
@@ -73,80 +78,22 @@
                         </h2>
 
                          <div class="owl-carousel owl-theme" id="project-slide">
+                              @foreach ($videos as $video)
                               <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
-                                   <img src="images/project/project-image01.jpg" class="img-fluid" alt="project image">
+                                   <img src="{{$video->thumbnail}}" class="img-fluid" alt="project image">
 
                                    <div class="project-info">
-                                        <small>Dakwah</small>
+                                        <small>{{$video->video_title}}</small>
 
                                         <h3>
                                              <a href="project-detail.html">
-                                                  <span>Ngaji</span>
+                                                  <span>{{$video->video_title}}</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
                                         </h3>
                                    </div>
                               </div>
-
-                              <div class="item project-wrapper" data-aos="fade-up">
-                                   <img src="images/project/project-image02.jpg" class="img-fluid" alt="project image">
-
-                                   <div class="project-info">
-                                        <small>Belajar</small>
-
-                                        <h3>
-                                             <a href="project-detail.html">
-                                                  <span>Sekolah</span>
-                                                  <i class="fa fa-angle-right project-icon"></i>
-                                             </a>
-                                        </h3>
-                                   </div>
-                              </div>
-
-                              <div class="item project-wrapper" data-aos="fade-up">
-                                   <img src="images/project/project-image03.jpg" class="img-fluid" alt="project image">
-
-                                   <div class="project-info">
-                                        <small>Umum</small>
-
-                                        <h3>
-                                             <a href="project-detail.html">
-                                                  <span>Pengajian Akbar</span>
-                                                  <i class="fa fa-angle-right project-icon"></i>
-                                             </a>
-                                        </h3>
-                                   </div>
-                              </div>
-
-                              <div class="item project-wrapper" data-aos="fade-up">
-                                   <img src="images/project/project-image04.jpg" class="img-fluid" alt="project image">
-
-                                   <div class="project-info">
-                                        <small>Social Media</small>
-
-                                        <h3>
-                                             <a href="project-detail.html">
-                                                  <span>Pengajian</span>
-                                                  <i class="fa fa-angle-right project-icon"></i>
-                                             </a>
-                                        </h3>
-                                   </div>
-                              </div>
-
-                              <div class="item project-wrapper" data-aos="fade-up">
-                                   <img src="images/project/project-image05.jpg" class="img-fluid" alt="project image">
-
-                                   <div class="project-info">
-                                        <small>Pariwisata</small>
-
-                                        <h3>
-                                             <a href="project-detail.html">
-                                                  <span>Rekreasi Iman</span>
-                                                  <i class="fa fa-angle-right project-icon"></i>
-                                             </a>
-                                        </h3>
-                                   </div>
-                              </div>
+                              @endforeach
                          </div>
                     </div>
 

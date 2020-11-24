@@ -5,6 +5,7 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Http\Models\Categories;
 
 
 class Video extends Model
@@ -20,6 +21,11 @@ class Video extends Model
     public function users()
     {
     	return $this->belongsTo(User::class);
+    }
+
+    public function categories()
+    {
+    	return $this->belongsTo(Categories::class);
     }
 
 }

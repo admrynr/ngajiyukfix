@@ -100,8 +100,6 @@
                             <th>Title</th>
                             <th>User</th>
                             <th>Id Category</th>
-                            <th>Video Url</th>
-                            <th>Content</th>
                             <th>Action</th>
                         </tr>
                     </thead>

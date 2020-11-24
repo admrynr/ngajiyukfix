@@ -20,6 +20,7 @@ class CreateVideos extends Migration
             $table->integer('id_category');
             $table->string('video_url');
             $table->text('content')->nullable();
+            $table->string('key');
             $table->string('thumbnail');
             $table->timestamps();
             $table->softDeletes();
