@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
       $video = Video::limit(5)->get();
-      //dd($video);
+      //dd($video->thumbnail);
 
       return view('index')->withVideos($video);
     }

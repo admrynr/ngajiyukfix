@@ -24,7 +24,7 @@
                           <i class="fa fa-tag mr-1" aria-hidden="true"></i>
                           Category
                           </a>
-                        <h4 class=" ml-4 mr-4 mb-1 text-left" >Judul Livestreaming asdas asdasdas asdasda</h4>
+                        <h4 class=" ml-4 mr-4 mb-1 text-left" >Di sini tempat judul livestream</h4>
                           <p class="ml-4 mr-4 mb-2 speaker-livestream">
                           Ustadz Fulan
                         </p>

@@ -83,7 +83,7 @@
                                    <img src="{{$video->thumbnail}}" class="img-fluid" alt="project image">
 
                                    <div class="project-info">
-                                        <small>{{$video->video_title}}</small>
+                                        <small>{{$video->categories->name}}</small>
 
                                         <h3>
                                              <a href="project-detail.html">
