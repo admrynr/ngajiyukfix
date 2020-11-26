@@ -33,6 +33,9 @@
                </a>
              </div>
           </div> 
+          <button id="scrollBtn" title="Go to top"><i class="fa fa-arrow-circle-down scroll-icon fa-2x" aria-hidden="true"></i>
+</button>
+
      </section>
 
 
@@ -53,15 +56,12 @@
                               <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                          </div>                    
                     </div>
-                    <div class="about-image" data-aos="fade-up" data-aos-delay="200">
-
-                          <img src="images/office.png" class="img-fluid" alt="office">
-                    </div>
+                    
                </div>
           </div>
-          <!--<div class="container col-12">
+          <div class="container col-12">
                <img src="/images/tentang-kami.jpg" data-aos="fade-up" class="img-fluid mt-5 mx-auto d-block" alt="office">
-          </div>-->
+          </div>
      </section>
    
 
@@ -104,4 +104,33 @@
 
 @endsection
 
-   
+@section('scripts')
+
+<script type="text/javascript">
+
+//Get the button:
+mybutton = document.getElementById("scrollBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800 ) {
+    mybutton.style.display = "none";
+  } else {
+    mybutton.style.display = "block";
+  }
+};
+
+// When the user clicks on the button, scroll to the top of the document
+$(function() {
+  $('#scrollBtn').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('html, body').get(0).scrollHeight}, 1000);
+  });
+});
+
+</script>
+
+@endsection  

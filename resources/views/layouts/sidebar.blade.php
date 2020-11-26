@@ -22,6 +22,12 @@
                                         <i class="mdi mdi-file"></i><span> Blog </span>
                                 </a>
                             </li>
+                            <li class="menu-title">User Management</li>
+                            <li>
+                                <a href="{{ route('user.index') }}" class="waves-effect">
+                                    <i class="mdi mdi-account-multiple"></i><span> Admin </span>
+                                </a>
+                            </li>
                         </ul>
 
                     </div>
