@@ -266,9 +266,9 @@ class HomeController extends Controller
     {
         $category = Categories::all();
         if ($request->filter == 'all' || empty($request->filter))
-        $video = Video::all();
+        $video = Video::paginate(6);
         else
-        $video = Video::where('id_category', $request->filter)->get();
+        $video = Video::where('id_category', $request->filter)->paginate(6);
 
         return view('video', ['categories' => $category, 'videos' => $video]);
     }
