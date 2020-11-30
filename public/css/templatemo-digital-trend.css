@@ -782,12 +782,18 @@ https://templatemo.com/tm-538-digital-trend
     color: var(--secondary-color);
   }
 
-  .blog-sidebar img {
+  .blog-sidebar .blog-image {
     border-radius: var(--border-radius-small);
-    margin: 0px;
-    /*margin-right: 11px;
-    height: 200px;*/
+    width: 159px;
+    margin-right: 22px;
   }
+
+  .blog-sidebar .video-image {
+  border-radius: var(--border-radius-small);
+  margin: 0px;
+  /*margin-right: 11px;
+  height: 200px;*/
+}
 
   .blog-sidebar h3 {
     font-size: 18px;

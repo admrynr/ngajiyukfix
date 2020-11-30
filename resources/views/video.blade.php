@@ -39,7 +39,7 @@
                     <div class="row">
                       @foreach ($videos as $video)
                       <div class="blog-sidebar col-12 col-lg-4 col-md-6 col-sm-12 d-flex flex-column justify-content-left align-items-left mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <img style="z-index: -1; position: relative;" src="{{$video->thumbnail}}" class="img-fluid" alt="blog">
+                        <img style="z-index: -1; position: relative;" src="{{$video->thumbnail}}" class="img-fluid video-image" alt="blog">
                         <a class="player-link" style="position: absolute; top: 25%; left: 40%" href="/video/detail/{{$video->id_video}}">
                         <i class="fa fa-play-circle fa-5x player-icon"></i>
                         </a>
