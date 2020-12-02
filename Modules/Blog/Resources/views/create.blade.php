@@ -70,30 +70,8 @@
                                 <button id="resetfoto" type="button" class="btn btn-block btn-secondary" >Reset Image</button>
                                 <input type="hidden" name="resetfoto" id="valueresetfoto">
                             </div>
-                            <div class="col-md-12">
-                                <hr>
-                            <h4 class="header-title">SEO</h4>
-                            </div>
-                            <div class='col-md-12'>
-                                <div class="form-group">
-                                    <label>Meta Title</label>
-                                    <input class="form-control" name="seo_title">
-                                </div>
-                            </div>
-                            <div class='col-md-12'>
-                                <div class="form-group">
-                                    <label>Meta Description</label>
-                                    <textarea class="form-control" name="seo_description" rows="10"></textarea>
-                                </div>
-                            </div>
-                            <div class='col-md-12'>
-                                <div class="form-group">
-                                    <label>Meta Keywords</label>
-                                    <input class="form-control" name="seo_keyword">
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-md-8">
+                            <div class="col-md-8">
                             <div class='col-md-12'>
                                 <div class="form-group">
                                     <label>Title</label>
@@ -116,7 +94,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

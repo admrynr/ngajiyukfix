@@ -17,9 +17,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/login', 'LoginController@showLoginForm')->name('login');
 
 //blog
-Route::get('/blog', function (){
-    return view('blog');
-});
+Route::get('/blog', 'HomeController@blog')->name('blog');
 Route::get('/blog/detail', function (){
     return view('blog-detail');
 });

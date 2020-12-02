@@ -40,13 +40,14 @@ class BlogController extends Controller
     public function data(Request $request)
     {
         if ($request->filter == 'all')
-        $data = Blog::where('category_id','!=',2)->with('user')->get();
+        $data = Blog::with('user')->get();
         else if($request->filter == 'active')
-        $data = Blog::where('category_id','!=',2)->with('user')->where('active',1)->get();
+        $data = Blog::with('user')->where('active',1)->get();
         else if($request->filter == 'deactive')
-        $data = Blog::where('category_id','!=',2)->with('user')->where('active',0)->get();
+        $data = Blog::with('user')->where('active',0)->get();
         else
-        $data = Blog::where('category_id','!=',2)->with('user')->onlyTrashed()->get();
+        $data = Blog::with('user')->onlyTrashed()->get();
+    //dd($data);
 
         return datatables::of($data)->make(true);
     }
@@ -315,12 +316,12 @@ class BlogController extends Controller
     //get info data
     public function info(Request $request)
     {
-        $model = Blog::where('category_id','!=',2)->get();
+        $model = Blog::all();
 
-        $active = Blog::where('category_id','!=',2)->where('active',1)->count();
-        $deactive = Blog::where('category_id','!=',2)->where('active',0)->count();;
+        $active = Blog::where('active',1)->count();
+        $deactive = Blog::where('active',0)->count();;
         $total = $model->count();
-        $trashed = Blog::where('category_id','!=',2)->onlyTrashed()->count();
+        $trashed = Blog::onlyTrashed()->count();
 
         $info = [
             'total' => $total,

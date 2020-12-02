@@ -21,7 +21,7 @@ class Blog extends Model
     //relation
     public function categories()
     {
-        return $this->belongsTo(\App\Models\Categories::class);
+        return $this->belongsTo(\App\Http\Models\Categories::class, 'category_id');
     }
     public function user()
     {

@@ -21,7 +21,6 @@ class Blog extends Migration
             $table->string('date');
             $table->text('content')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('slug');
             $table->integer('active');
             $table->timestamps();
             $table->softDeletes();

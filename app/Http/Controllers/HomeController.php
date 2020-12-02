@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Helpers\RajaOngkir;
 use Veritrans_Config;
 use Veritrans_Snap;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -142,7 +144,11 @@ class HomeController extends Controller
     public function blog()
     {
         $blog = Blog::all();
-        return view('blog', ['blog' => $blog]);
+        //dd($blog->find(1)->categories->name);
+        $year = DB::select('select YEAR(date) as year from blog GROUP BY YEAR(date)');
+        //dd($year);
+
+        return view('blog', ['blogs' => $blog, 'years' => $year]);
     }
 
     public function blogdetail($id)

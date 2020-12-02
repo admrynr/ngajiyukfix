@@ -51,7 +51,6 @@ var blog = {
 					}
 				},
 				{ data: 'title', name: 'title' },
-                { data: 'slug', name: 'slug' },
                 { data: 'user.name', name: 'user.name' },
 				{ data: null, name: 'status',render:function(data){
 					if(data.deleted_at != null){

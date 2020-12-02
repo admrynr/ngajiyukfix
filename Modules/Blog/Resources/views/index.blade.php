@@ -90,7 +90,6 @@
                             <th>No.</th>
                             <th>Thumbnail</th>
                             <th>Title</th>
-                            <th>Slug</th>
                             <th>Contributor</th>
                             <th>Status</th>
                             <th>Actions</th>
