@@ -50,11 +50,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email'=>$data['email'], 'password'=>$data['password']])) {
             // Authentication passed...
             if(Auth::user()->is_verified==1){
-                if (Auth::user()->level==1){
                 return redirect()->route('dashboard.index');
-                }else if (Auth::user()->level==3){
-                    return redirect()->route('cashier.index');
-                }
             }else{
                 return redirect('/unverified');
             }

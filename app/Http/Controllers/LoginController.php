@@ -70,7 +70,7 @@ class LoginController extends Controller
             else
             if($cekuser->is_verified == 1){
                 Auth::attempt(['email'=>$request->email, 'password'=>$request->password]);
-                return redirect()->route('dashboard.index');
+                return redirect()->route('home');
             }else{
                 return redirect()->back()->withErrors(['error' => 'Please verify your account first !']);
             }

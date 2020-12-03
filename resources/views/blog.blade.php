@@ -33,7 +33,7 @@
                         <div class="blog-info mt-2 mb-2">
                           <h6 class="blog-category text-primary">{{$blog->categories->name}}</h6>
 
-                          <h3><a href="blog-detail.html">{{$blog->title}}</a></h3>
+                          <h3><a href="blog/detail/{{$blog->id}}">{{$blog->title}}</a></h3>
                         </div>
                       </div>
                       @endforeach

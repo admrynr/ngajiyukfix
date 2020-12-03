@@ -18,9 +18,7 @@ Route::get('/login', 'LoginController@showLoginForm')->name('login');
 
 //blog
 Route::get('/blog', 'HomeController@blog')->name('blog');
-Route::get('/blog/detail', function (){
-    return view('blog-detail');
-});
+Route::get('/blog/detail/{id}', 'HomeController@blogdetail')->name('blogdetail');
 
 //video
 Route::get('/video', 'HomeController@video');

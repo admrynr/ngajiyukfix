@@ -14,6 +14,15 @@
                     <input type="email" name="email" id="email" class="form-control" required>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="nama_client" class="control-label">Role :</label>
+                    <select type="text" name="role" id="role" class="form-control" required>
+                        <option value=2>Admin </option>
+                        <option value=3>Regular User </option>
+                    </select> 
+                </div>
+            </div>
         </div>
         <div class="row password_form">
             <div class="col-md-6">

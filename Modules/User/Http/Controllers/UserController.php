@@ -33,13 +33,13 @@ class UserController extends Controller
     public function data(Request $request)
     {
         if ($request->filter == 'all')
-        $user = User::where('level', '=',2)->get();
+        $user = User::where('level', '!=',1)->get();
         else if($request->filter == 'active')
-        $user = User::where('level', '=',2)->where('is_verified',1)->get();
+        $user = User::where('level', '!=',1)->where('is_verified',1)->get();
         else if($request->filter == 'deactive')
-        $user = User::where('level', '=',2)->where('is_verified',0)->get();
+        $user = User::where('level', '!=',1)->where('is_verified',0)->get();
         else
-        $user = User::onlyTrashed()->where('level', '=',2)->get();
+        $user = User::onlyTrashed()->where('level', '!=',1)->get();
 
         return datatables::of($user)->make(true);
     }
@@ -93,7 +93,7 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->level = 2;
+        $user->level = $request->role;
         //
         $user->password = \Hash::make($request->password);
         $user->is_verified = 1;
@@ -132,6 +132,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->level = $request->role;
         if(!empty($request->password)){
             if($request->password != $request->confirmation){
                 $data = [

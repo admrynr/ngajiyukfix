@@ -154,7 +154,10 @@ class HomeController extends Controller
     public function blogdetail($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('blogdetail', ['blog' => $blog]);
+        $date = strtotime($blog->date);
+        $dates = date('d F Y', $date);
+        //dd($dates);
+        return view('blog-detail', ['blog' => $blog, 'date' => $dates]);
     }
 
     public function login()

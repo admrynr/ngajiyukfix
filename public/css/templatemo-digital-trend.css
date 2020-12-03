@@ -745,6 +745,21 @@ https://templatemo.com/tm-538-digital-trend
   }
 
 
+  /*---------------------------------------
+      BLOG            
+  -----------------------------------------*/
+  .comment-sec {
+    background-color: var(--project-bg);
+    border-radius: var(--border-radius-small);
+  }
+
+  .comment-sec hr {
+    color: white;
+  }
+
+  .contact-form .form-control {
+    background: white !important;
+  }
 
   /*---------------------------------------
       BLOG            
