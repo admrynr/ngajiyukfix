@@ -757,8 +757,22 @@ https://templatemo.com/tm-538-digital-trend
     color: white;
   }
 
-  .contact-form .form-control {
+  .comment-sec input, textarea {
     background: white !important;
+  }
+
+  .comment-user {
+    font-weight: bold;
+  }
+
+  .comment-date {
+    font-size: var(--menu-font-size);
+    color: var(--gray-color);
+  }
+
+  .comment-content {
+    font-size: var(--base-font-size);
+    color: var(--dark-color);
   }
 
   /*---------------------------------------

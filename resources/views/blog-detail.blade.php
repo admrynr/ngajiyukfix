@@ -48,6 +48,24 @@
                 <h3 class="my-3" data-aos="fade-up">X Comments</h3>
                 <hr>
 
+                <div class="container">
+                <div class="row col-12 mx-auto pl-0 comment-node d-flex flex-row align-items-start">
+                  <i class="fa fa-user-circle-o fa-2x mr-2" aria-hidden="true"></i>
+                  <div>
+                  <span class="mr-1 comment-user"> <b>User</b> </span> 
+                  <span class="comment-date">20 Desember 2020 at 05:51</span>
+                  <div class="comment-content"> Assalamualaikum, mau nanya soal bla bla bla
+                    blb lbslblslbslbsl bslbslba sbalbslslbalsbalb
+                  </div>
+                  </div>
+
+                </div>
+                  </br>
+                  <a href="#">Reply</a>
+                <hr>
+                </div>
+
+
                 <h3 class="my-3" data-aos="fade-up">Leave a comment</h3>
 
                 <form action="#" method="get"  class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
