@@ -26,9 +26,15 @@
                     <li class="nav-item">
                         <a href="/livestream" class="nav-link">Live Streaming</a>
                     </li>
+                    @if (empty(Auth::user()))
                     <li class="nav-item">
                         <a href="/login" class="nav-link contact">Login</a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="/admin" class="nav-link contact">Admin</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>

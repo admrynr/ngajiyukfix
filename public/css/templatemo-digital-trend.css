@@ -775,6 +775,26 @@ https://templatemo.com/tm-538-digital-trend
     color: var(--dark-color);
   }
 
+  .comment-sec a {
+    font-size: var(--menu-font-size);
+  }
+
+  .comment-sec a:link {
+    color: var(--gray-color);
+  }
+
+  .comment-sec a:hover {
+    color: var(--secondary-color);
+  }
+
+  .displayed {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
   /*---------------------------------------
       BLOG            
   -----------------------------------------*/

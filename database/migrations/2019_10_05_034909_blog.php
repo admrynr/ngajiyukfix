@@ -19,6 +19,7 @@ class Blog extends Migration
             $table->integer('category_id');
             $table->string('title');
             $table->string('date');
+            $table->string('slug');
             $table->text('content')->nullable();
             $table->string('thumbnail')->nullable();
             $table->integer('active');

@@ -45,30 +45,42 @@
 
               <div class="col-lg-8 mx-auto pt-2 pr-4 pl-4 mb-5 pb-5 col-12 comment-sec" data-aos="fade-up">
 
-                <h3 class="my-3" data-aos="fade-up">X Comments</h3>
+                <div class="{{($comments->count() > 0) ? 'displayed' : 'hidden'}}">
+                <h3 class="my-3" data-aos="fade-up">{{$comments->count()}} Comments</h3>
                 <hr>
+              </div>
 
+                @foreach ($comments as $comment)
+                <section class="comment-node" id="comment-node-{{$comment->id}}">
                 <div class="container">
-                <div class="row col-12 mx-auto pl-0 comment-node d-flex flex-row align-items-start">
-                  <i class="fa fa-user-circle-o fa-2x mr-2" aria-hidden="true"></i>
+                <div class="row col-12 mx-auto pl-0 d-flex flex-row align-items-start">
                   <div>
-                  <span class="mr-1 comment-user"> <b>User</b> </span> 
-                  <span class="comment-date">20 Desember 2020 at 05:51</span>
-                  <div class="comment-content"> Assalamualaikum, mau nanya soal bla bla bla
-                    blb lbslblslbslbsl bslbslba sbalbslslbalsbalb
+                  <i class="fa fa-user-circle-o fa-2x mr-2" aria-hidden="true"></i>
                   </div>
+                  <div>
+                  <span class="mr-1 comment-user"> <b>{{$comment->name}}</b> </span> 
+                  <span class="comment-date">{{$comment->created_at}}</span>
+                  
                   </div>
 
                 </div>
+                <div class="mt-1 comment-content"> {{$comment->content}}
+                  </div>
                   </br>
                   <a href="#">Reply</a>
+                  @if (!empty(Auth::user()))
+                  <a href="#" class="ml-2">Delete</a>
+                  @endif
                 <hr>
                 </div>
+                </section>
+                @endforeach
 
 
                 <h3 class="my-3" data-aos="fade-up">Leave a comment</h3>
 
-                <form action="#" method="get"  class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
+                <form action="/comment/store/{{$blog->id}}" method="post"  class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
+                  @csrf
                   <div class="row">
                     <div class="col-lg-6 col-12">
                       <input type="text" class="form-control" name="name" placeholder="Name">

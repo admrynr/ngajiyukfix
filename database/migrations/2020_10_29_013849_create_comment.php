@@ -14,12 +14,15 @@ class CreateComment extends Migration
     public function up()
     {
         Schema::create('comment', function (Blueprint $table) {
-            $table->increments('id_comment');
-            $table->string('comment_title')->nullable();
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email');
             $table->text('content');
-            $table->integer('id_video')->nullable();
-            $table->integer('id_livestream')->nullable();
-            $table->integer('id_blog')->nullable();
+            $table->integer('videos_id')->nullable();
+            $table->integer('livestream_id')->nullable();
+            $table->integer('blog_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

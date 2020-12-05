@@ -29,6 +29,9 @@ Route::get('/livestream', function (){
     return view('livestream');
 });
 
+//comment
+Route::post('/comment/store/{id}', 'HomeController@commentstoreblog')->name('commentblog.store');
+
 //Route::get('/admin', 'HomeController@login')->name('loginpage');
 
 
@@ -46,6 +49,7 @@ Route::get('/registerpage', 'HomeController@registerpage')->name('registerpage')
 Route::get('/forgot', 'HomeController@forgot')->name('forgot');
 Route::get('/verified/{id}', 'RegController@verified')->name('verified');
 */
+
 //dashboarduser
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/myauction', 'HomeController@myauction')->name('myauction');

@@ -7,6 +7,7 @@ use Auth;
 use App\Http\Models\Product;
 use App\Http\Models\ProductMedia;
 use App\User;
+use App\Http\Models\Comment;
 use App\Http\Models\Categories;
 use App\Http\Models\Video;
 use App\Http\Models\Blog;
@@ -156,8 +157,36 @@ class HomeController extends Controller
         $blog = Blog::findOrFail($id);
         $date = strtotime($blog->date);
         $dates = date('d F Y', $date);
+        $comments = Comment::all();
         //dd($dates);
-        return view('blog-detail', ['blog' => $blog, 'date' => $dates]);
+        return view('blog-detail', ['blog' => $blog, 'date' => $dates, 'comments' => $comments]);
+    }
+
+    public function commentstoreblog($id, Request $request)
+    {
+      $comment = new Comment();
+            //dd($comment);
+
+      if (!empty(Auth::user()))
+      {
+        $comment->name = Auth::user()->name;
+      }
+      else{
+        $comment->name = $request->name;
+      }
+
+      $comment->email = $request->email;
+      $comment->content = $request->message;
+      $comment->blog_id = $id;
+      $comment->save();
+
+      $blog = Blog::find($id);
+      //dd($blog);
+      $date = strtotime($blog->date);
+      $dates = date('d F Y', $date);
+      $comments = Comment::all();
+
+      return redirect('/blog/detail/'.$id.'#comment-node-'.$comment->id)->withBlog($blog)->withDate($dates)->withComments($comments);
     }
 
     public function login()
