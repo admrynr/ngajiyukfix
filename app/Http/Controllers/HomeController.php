@@ -8,6 +8,7 @@ use App\Http\Models\Product;
 use App\Http\Models\ProductMedia;
 use App\User;
 use App\Http\Models\Comment;
+use App\Http\Models\Replies;
 use App\Http\Models\Categories;
 use App\Http\Models\Video;
 use App\Http\Models\Blog;
@@ -157,12 +158,11 @@ class HomeController extends Controller
         $blog = Blog::findOrFail($id);
         $date = strtotime($blog->date);
         $dates = date('d F Y', $date);
-        $comments = Comment::all();
-        //dd($dates);
+        $comments = Comment::whereNotNull('blog_id')->get();
         return view('blog-detail', ['blog' => $blog, 'date' => $dates, 'comments' => $comments]);
     }
 
-    public function commentstoreblog($id, Request $request)
+    public function commentstore($id, Request $request)
     {
       $comment = new Comment();
             //dd($comment);
@@ -175,18 +175,71 @@ class HomeController extends Controller
         $comment->name = $request->name;
       }
 
+      $type = $request->type;
+      if ($type == "blog"){
+
+          $comment->blog_id = $id;
+
+      }elseif ($type == "video"){
+          $comment->videos_id = $id;
+      }else {
+          $comment->livestream_id = $id;
+      }
+
       $comment->email = $request->email;
       $comment->content = $request->message;
-      $comment->blog_id = $id;
       $comment->save();
 
-      $blog = Blog::find($id);
-      //dd($blog);
-      $date = strtotime($blog->date);
-      $dates = date('d F Y', $date);
-      $comments = Comment::all();
+      
+      if ($type == "blog"){
+          $blog = Blog::find($id);
+          $date = strtotime($blog->date);
+          $dates = date('d F Y', $date);
+          $comments = Comment::whereNotNull('blog_id');
 
-      return redirect('/blog/detail/'.$id.'#comment-node-'.$comment->id)->withBlog($blog)->withDate($dates)->withComments($comments);
+          return redirect('/blog/detail/'.$id.'#comment-node-'.$comment->id)->withBlog($blog)->withDate($dates)->withComments($comments);
+      } else if($type == "video"){
+          $video = Video::where('id_video', $id)->first();
+          $comments = Comment::whereNotNull('videos_id');
+
+          return redirect('/video/detail/'.$id.'#comment-node-'.$comment->id)->withVideo($video)->withComments($comments);
+      }    
+    }
+
+    public function replystore($id, $cid, Request $request)
+    {
+      $reply = new Replies();
+
+      if (!empty(Auth::user()))
+      {
+        $reply->name = Auth::user()->name;
+      }
+      else{
+        $reply->name = $request->name;
+      }
+
+      
+      if ($request->type = "blog"){
+          $blog = Blog::find($id);
+          $date = strtotime($blog->date);
+          $dates = date('d F Y', $date);
+          $comments = Comment::all();
+
+          $reply->blog_id = $id;
+      }else if ($request->type = "video"){
+          $reply->videos_id = $id;
+      }else {
+          $reply->livestream_id = $id;
+      }      
+      $reply->comment_id = $cid;
+      $reply->email = $request->email;
+      $reply->content = $request->message;
+      $reply->save();
+
+
+      if ($request->type = "blog"){
+        return redirect('/blog/detail/'.$id.'#comment-node-'.$cid)->withBlog($blog)->withDate($dates)->withComments($comments);
+      }
     }
 
     public function login()
@@ -314,9 +367,9 @@ class HomeController extends Controller
     public function videodetail($id)
     {
       $video = Video::where('id_video', $id)->first();
-      //dd($video);
+      $comments = Comment::whereNotNull('videos_id');
 
-      return view('videodetail')->withVideo($video);
+      return view('videodetail')->withVideo($video)->withComments($comments);
     }
 
     public function categorydetail($id)

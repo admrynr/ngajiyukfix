@@ -30,7 +30,8 @@ Route::get('/livestream', function (){
 });
 
 //comment
-Route::post('/comment/store/{id}', 'HomeController@commentstoreblog')->name('commentblog.store');
+Route::post('/comment/store/{id}', 'HomeController@commentstore')->name('comment.store');
+Route::post('/reply/store/{id}/{cid}', 'HomeController@replystore')->name('reply.store');
 
 //Route::get('/admin', 'HomeController@login')->name('loginpage');
 

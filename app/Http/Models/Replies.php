@@ -3,25 +3,23 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Models\Replies;
+use App\Http\Models\Comment;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Comment extends Model
+class Replies extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'comment';
+    protected $table = "replies";
 
     protected $fillable = [
         '*'];
 
-    
-
     protected $dates = ['deleted_at'];
 
-    public function replies()
-    {
-    	return $this->hasMany(Replies::class);
+    //relationships
+    public function commments(){
+    	return $this->belongsTo(Comment::class);
     }
 }
