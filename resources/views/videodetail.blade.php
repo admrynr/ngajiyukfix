@@ -37,7 +37,8 @@
      </section>
 
      
-
+<section class="project-detail">
+  <div class="container">
               <div class="col-lg-8 mx-auto pt-2 pr-4 pl-4 mb-5 pb-5 col-12 comment-sec" data-aos="fade-up">
 
                 <div class="{{($comments->count() > 0) ? 'displayed' : 'hidden'}}">
@@ -148,6 +149,7 @@
                 </div>
 
               </div>
+            </section>
               
 
 

@@ -206,6 +206,24 @@ class HomeController extends Controller
       }    
     }
 
+    public function commentdelete($id, $cid)
+    {
+      $comment = Comment::find($cid);
+      $replies = Replies::where('comment_id', $cid)->delete();
+      //dd($comment)
+      $com = $comment->id - 1;
+      $blog = Blog::find($id);
+      $date = strtotime($blog->date);
+      $dates = date('d F Y', $date);
+      $comments = Comment::whereNotNull('blog_id');
+
+
+      $comment->delete();
+
+      return redirect('/blog/detail/'.$id.'#comment-node-'.$com)->withBlog($blog)->withDate($dates)->withComments($comments);
+
+    }
+
     public function replystore($id, $cid, Request $request)
     {
       $reply = new Replies();

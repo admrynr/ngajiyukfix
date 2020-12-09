@@ -36,8 +36,6 @@
 
                   <div class="col-lg-9 mx-auto col-md-11 col-12 my-5 pt-3" data-aos="fade-up">
 
-                    <h2 class="mb-3">Etiam quis metus elementum, tempor risus vel, condimentum orci.</h2>
-
                     {!!$blog->content!!}
 
                     </div>
@@ -69,7 +67,7 @@
                   </br>
                   <a href="#" class="replyComment" data-id="{{$comment->id}}">Reply</a>
                   @if (!empty(Auth::user()))
-                  <a href="#" class="ml-2">Delete</a>
+                  <a href="/comment/delete/{{$blog->id}}/{{$comment->id}}" class="ml-2">Delete</a>
                   @endif
                 <hr>
                 @foreach ($comment->replies as $reply)

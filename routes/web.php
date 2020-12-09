@@ -31,6 +31,7 @@ Route::get('/livestream', function (){
 
 //comment
 Route::post('/comment/store/{id}', 'HomeController@commentstore')->name('comment.store');
+Route::get('/comment/delete/{id}/{cid}', 'HomeController@commentdelete')->name('comment.delete');
 Route::post('/reply/store/{id}/{cid}', 'HomeController@replystore')->name('reply.store');
 
 //Route::get('/admin', 'HomeController@login')->name('loginpage');
